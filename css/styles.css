@@ -1,0 +1,15 @@
+body {
+  background-color: gainsboro;
+}
+.forms {
+  background-color: beige;
+  position: absolute;
+  height: 600px;
+  width: 600px;
+  /* right: 300px; */
+  left: 600px;
+  padding: 100px;
+  padding-top: 30;
+  padding-top: 30;
+  margin-top: 200px;
+}
