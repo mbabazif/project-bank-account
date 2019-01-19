@@ -44,29 +44,28 @@ $(document).ready(function() {
         fal.initialdeposit +
         "</span></li"
     );
-    $("#movements").show();
   });
-  // $(document).ready(function() {
-  $("#movements").submit(function(event) {
-    alert("Seeing me");
-    event.preventDefault();
-    var inputDeposit = parseInt($("input#new-deposit").val());
-    // var inputWithdraw = $("input#new-withdraw").val();
-    // var finalBalance = new balance(inputDeposit);
-    var finalBalance = new Finalbalance(inputDeposit, inputWithdraw);
-    $("ul#balance").append(
-      "<li><span class='balance'>" + finalBalance.deposit + "</span></li>"
-    );
-  });
-  // $(document).ready(function() {
-  $("#draw").submit(function(event) {
-    alert("Seeing me");
-    event.preventDefault();
-    // var inputDeposit = $("input#new-deposit").val();
-    var inputWithdraw = parseInt($("input#new-withdraw").val());
+  $(document).ready(function() {
+    $("#movements").submit(function(event) {
+      alert("Seeing me");
+      event.preventDefault();
+      var inputDeposit = parseInt($("input#new-deposit").val());
 
-    $("ul#balance").append(
-      "<li><span class='balance'>" + finalBalance.deposit + "</span></li>"
-    );
+      var finalBalance = new Finalbalance(inputDeposit);
+      $("ul#balance").append(
+        "<li><span class='balance'>" + finalBalance.deposit + "</span></li>"
+      );
+    });
+    $(document).ready(function() {
+      $("#draw").submit(function(event) {
+        alert("Seeing me");
+        event.preventDefault();
+        var inputWithdraw = parseInt($("input#new-withdraw").val());
+
+        $("ul#balance").append(
+          "<li><span class='balance'>" + finalBalance.deposit + "</span></li>"
+        );
+      });
+    });
   });
 });
