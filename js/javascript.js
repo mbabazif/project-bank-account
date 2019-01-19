@@ -1,23 +1,22 @@
-var balance;
 // business logic
-function data(name, initialdeposit) {
-  this.Name = name;
-  this.Initialdeposit = initialdeposit;
+function balance(name, initialdeposit) {
+  this.name = name;
+  this.initialdeposit = initialdeposit;
 }
 
-data.prototype.fulcalc = function(depo) {
-  if (this.Initialdeposit === 0) {
+balance.prototype.fulcalc = function(balance) {
+  if (this.initialdeposit === 0) {
     return "No balance";
-  } else if (this.Initialbalance > 0) {
-    balance = this.Initialdeposit + depo;
+  } else if (this.initialbalance > 0) {
+    balance = this.initialdeposit + deposit;
   }
   return balance;
 };
-data.prototype.bank = function(withd) {
-  if (this.Initialdeposit === 0) {
+balance.prototype.fulcalc = function(balance) {
+  if (this.initialdeposit === 0) {
     return "No balance";
-  } else if (this.Initialbalance > 0) {
-    balance = this.Initialbalance - withd;
+  } else if (this.initialbalance > 0) {
+    balance = this.deposit - this.withdraw;
   }
   return balance;
 };
@@ -32,7 +31,7 @@ data.prototype.bank = function(withd) {
 //  user interface
 $(document).ready(function() {
   $("form#Info").submit(function(event) {
-    // alert("Seeing me");
+    alert("Seeing me");
     event.preventDefault();
     var inputName = $("input#new-name").val();
     var inputInitialDeposit = parseInt($("input#new-initialdeposit").val());
@@ -40,30 +39,32 @@ $(document).ready(function() {
     var fal = new balance(inputName, inputInitialDeposit);
     $("ul#balance").append(
       "<li><span class='balance'>" +
-        fal.Name +
+        fal.name +
         " " +
-        fal.Initialdeposit +
+        fal.initialdeposit +
         "</span></li"
     );
     $("#movements").show();
   });
+  // $(document).ready(function() {
   $("#movements").submit(function(event) {
+    alert("Seeing me");
     event.preventDefault();
     var inputDeposit = parseInt($("input#new-deposit").val());
     // var inputWithdraw = $("input#new-withdraw").val();
     // var finalBalance = new balance(inputDeposit);
-    // var finalBalance = new Finalbalance(inputDeposit, inputWithdraw)
+    var finalBalance = new Finalbalance(inputDeposit, inputWithdraw);
     $("ul#balance").append(
       "<li><span class='balance'>" + finalBalance.deposit + "</span></li>"
     );
   });
-
+  // $(document).ready(function() {
   $("#draw").submit(function(event) {
+    alert("Seeing me");
     event.preventDefault();
-    var inputDeposit = $("input#new-deposit").val();
-    var inputWithdraw = $("input#new-withdraw").val();
-    var finalBalance = new balance(inputDeposit, inputWithdraw);
-    // var finalBalance = new Finalbalance(inputDeposit, inputWithdraw)
+    // var inputDeposit = $("input#new-deposit").val();
+    var inputWithdraw = parseInt($("input#new-withdraw").val());
+
     $("ul#balance").append(
       "<li><span class='balance'>" + finalBalance.deposit + "</span></li>"
     );
